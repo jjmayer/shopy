@@ -18,7 +18,7 @@ namespace Shopy.DataAccess
             Database.SetInitializer(new DatabaseInitializer());
         }
 
-        public ShopyContext() : base("Data Source=.\\SQLEXPRESS;Initial Catalog=Shopy;Integrated Security=True")
+        public ShopyContext() : base("Data Source=JAKOB-PC-WIN7\\SQLEXPRESS;Initial Catalog=Shopy;Integrated Security=False;User ID=Shopy;Password=Shopy")
         {
             this.Configuration.AutoDetectChangesEnabled = false;
             this.Configuration.LazyLoadingEnabled = false;
@@ -27,6 +27,8 @@ namespace Shopy.DataAccess
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<ShopingList> ShopingLists { get; set; }
         public virtual DbSet<ShopingItem> ShopingItems { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Shop> Shops { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,7 +46,12 @@ namespace Shopy.DataAccess
 
         public override int SaveChanges()
         {
-            UpdateChangeTimes();
+            return this.SaveChanges(generateId: true);
+        }
+
+        public int SaveChanges(bool generateId = true)
+        {
+            UpdateChangeTimes(generateId);
             return base.SaveChanges();
         }
 
@@ -60,7 +67,7 @@ namespace Shopy.DataAccess
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        public void UpdateChangeTimes()
+        public void UpdateChangeTimes(bool generateId=true)
         {
             var modifiedEntries = from entry in ChangeTracker.Entries()
                                   where entry.Entity is Entity.Entity
@@ -76,7 +83,8 @@ namespace Shopy.DataAccess
 
                     if (entry.State == EntityState.Added)
                     {
-                        entity.Id = Guid.NewGuid().ToString().Replace("-", "");
+                        if(generateId)
+                            entity.Id = Guid.NewGuid().ToString().Replace("-", "");
                         entity.CreatedAt = now;
                     }
                     else
