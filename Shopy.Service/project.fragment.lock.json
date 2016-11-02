@@ -1,0 +1,94 @@
+{
+  "version": 2,
+  "exports": {
+    "Shopy.Common/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Shopy.Common.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Shopy.Common.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Shopy.Common.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Shopy.Entity/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Shopy.Entity.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Shopy.Entity.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Shopy.Entity.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Shopy.Logic.Interface/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Shopy.Logic.Interface.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Shopy.Logic.Interface.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Shopy.Logic.Interface.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Shopy.Logic/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Shopy.Logic.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "bin/Debug/Shopy.Logic.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Shopy.Logic.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "Shopy.DataAccess/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Shopy.DataAccess.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "bin/Debug/Shopy.DataAccess.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Shopy.DataAccess.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}
